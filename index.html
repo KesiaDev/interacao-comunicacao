@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interação Comunicação Criativa | Duda Rocha</title>
-  <meta name="description" content="Interação Comunicação Criativa - Projetos culturais, turismo, audiovisual e marketing com Duda Rocha. Mais de 25 anos de experiência conectando territórios, memórias e pessoas." />
+  <title>Interação | Marketing Cultural e Turismo</title>
+  <meta name="description" content="Interação - Empresa especializada em marketing cultural, turismo e produção audiovisual. Mais de 25 anos de experiência conectando territórios, memórias e pessoas." />
   <meta name="keywords" content="Duda Rocha, Interação, comunicação, cultura, turismo, audiovisual, marketing, projetos culturais, consultoria, branding, storytelling, economia criativa, Caxias do Sul" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -12,43 +12,87 @@
 
 </head>
 <body>
-  <header>
-    <div class="logo">
-        <img src="img/logo-interacao.png" alt="Logo Interação" />
+  <header class="modern-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <div class="logo">
+          <span class="logo-text">
+            <span class="logo-inter">inter</span>
+            <span class="logo-acao verde">ação</span>
+          </span>
+          <div class="logo-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="logo-tagline">
+            marketing • cultura • turismo
+          </div>
+        </div>
       </div>
-      <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="nav" aria-expanded="false">
+      
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#inicio" class="nav-link active">
+            <span>Início</span>
+            <div class="nav-indicator"></div>
+          </a></li>
+          <li><a href="#sobre" class="nav-link">
+            <span>Sobre</span>
+            <div class="nav-indicator"></div>
+          </a></li>
+          <li><a href="#servicos" class="nav-link">
+            <span>Serviços</span>
+            <div class="nav-indicator"></div>
+          </a></li>
+          <li><a href="#equipe" class="nav-link">
+            <span>Equipe</span>
+            <div class="nav-indicator"></div>
+          </a></li>
+
+        </ul>
+      </nav>
+      
+      <button class="menu-toggle" onclick="openMenu()" aria-label="Abrir menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav id="nav">
-        <ul>
-          <li><a href="#inicio" class="active">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-      <div class="menu-overlay"></div>
+    </div>
+    <div class="menu-overlay"></div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
       <div class="hero-background">
         <div class="particles"></div>
+        <div class="hero-overlay"></div>
       </div>
       
       <div class="hero-content">
-        <div class="hero-media">
-          <video class="hero-video" autoplay muted loop playsinline poster="img/equipe.jpg">
-            <source src="img/hero-video.mp4" type="video/mp4">
-            <img src="img/equipe.jpg" alt="Equipe trabalhando" />
-          </video>
-        </div>
-        
         <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-star"></i>
+            <span>25 Anos de Experiência</span>
+          </div>
           <h1>Marketing, cultura e <span class="verde">turismo</span> <strong>criativos</strong></h1>
-          <p>Mais de 25 anos de experiência conectando territórios, preservando memórias e inspirando pessoas pelo Brasil.</p>
+          <p class="hero-subtitle">Soluções completas em comunicação criativa, com 25 anos de experiência conectando territórios, preservando memórias e inspirando pessoas pelo Brasil.</p>
+          
+          <div class="hero-features">
+            <div class="feature-item">
+              <i class="fas fa-map-marked-alt"></i>
+              <span>Marketing Territorial</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-video"></i>
+              <span>Produção Audiovisual</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>Eventos Culturais</span>
+            </div>
+          </div>
+          
           <div class="hero-buttons">
             <button class="cta-primary" onclick="saibaMais()">
               <span>Veja nossos projetos de impacto</span>
@@ -60,10 +104,59 @@
             </button>
           </div>
         </div>
+        
+        <div class="hero-media">
+          <div class="hero-image-container">
+            <video class="hero-video" autoplay muted loop playsinline poster="img/equipe.jpg">
+              <source src="img/hero-video.mp4" type="video/mp4">
+              <img src="img/equipe.jpg" alt="Equipe trabalhando" />
+            </video>
+            <div class="hero-floating-card">
+              <i class="fas fa-award"></i>
+              <span>Especialistas em Cultura</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por que nos escolher -->
+    <section id="diferenciais" class="section reveal">
+      <h2><i class="fas fa-star"></i> Por que nos escolher?</h2>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Paixão pela Cultura</h3>
+          <p>25 anos dedicados à preservação e valorização da cultura brasileira, com projetos que resgatam memórias e fortalecem identidades territoriais.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Experiência Comprovada</h3>
+          <p>Mais de 200 projetos realizados em 50 cidades, com reconhecimento nacional e prêmios em festivais culturais.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Inovação Criativa</h3>
+          <p>Soluções inovadoras que combinam tecnologia, arte e cultura para criar experiências únicas e memoráveis.</p>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Parceria Completa</h3>
+          <p>Do planejamento à execução, acompanhamos cada etapa do seu projeto com dedicação e expertise especializada.</p>
+        </div>
       </div>
     </section>
 
     <section id="estatisticas" class="section reveal">
+      <h2><i class="fas fa-chart-line"></i> Nossos Números</h2>
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-number" data-target="200">0</div>
@@ -84,29 +177,71 @@
       </div>
     </section>
 
-    <section id="sobre" class="section sobre-flex reveal">
-      <div class="sobre-img">
-        <img src="img/duda-rocha.jpg" alt="Duda Rocha" />
+    <section id="sobre" class="section reveal">
+      <h2><i class="fas fa-building"></i> Sobre a Interação</h2>
+      <div class="empresa-content">
+        <div class="empresa-texto">
+          <p class="empresa-destaque">A <strong>Interação</strong> é uma empresa especializada em marketing cultural, turismo e produção audiovisual, com mais de 25 anos de experiência no mercado brasileiro.</p>
+          
+          <p>Nossa missão é conectar territórios, preservar memórias e inspirar pessoas através de soluções criativas e sustentáveis. Atuamos na elaboração e gestão de projetos culturais, produção audiovisual, comunicação estratégica e marketing territorial.</p>
+          
+                      <p>Com uma equipe multidisciplinar e vasta experiência em economia criativa, patrimônio cultural e desenvolvimento regional, a Interação oferece soluções completas que valorizam a identidade cultural local e geram impacto social positivo.</p>
+        </div>
+        
+        <div class="empresa-valores">
+          <h3>Nossos Valores</h3>
+          <div class="valores-grid">
+            <div class="valor-item">
+              <i class="fas fa-heart"></i>
+              <h4>Paixão pela Cultura</h4>
+              <p>Valorizamos e preservamos a riqueza cultural brasileira</p>
+            </div>
+            <div class="valor-item">
+              <i class="fas fa-handshake"></i>
+              <h4>Compromisso</h4>
+              <p>Dedicação total em cada projeto e parceria</p>
+            </div>
+            <div class="valor-item">
+              <i class="fas fa-lightbulb"></i>
+              <h4>Inovação</h4>
+              <p>Soluções criativas e tecnologias inovadoras</p>
+            </div>
+            <div class="valor-item">
+              <i class="fas fa-leaf"></i>
+              <h4>Sustentabilidade</h4>
+              <p>Desenvolvimento responsável e impacto positivo</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sobre-texto">
-        <h2>Sobre Duda Rocha</h2>
-        <p>Profissional com mais de 25 anos de experiência no mercado cultural, audiovisual e turístico. Atua na elaboração e gestão de projetos culturais, produção audiovisual, comunicação estratégica e marketing territorial. Como empresária da Interação, desenvolve soluções criativas e sustentáveis que conectam territórios, memórias e pessoas. Pesquisadora em economia criativa, patrimônio cultural e desenvolvimento regional.</p>
-        <div class="sobre-areas">
-          <div class="area-card">
-            <i class="fas fa-lightbulb"></i>
-            <span>Projetos Culturais</span>
+    </section>
+
+    <section id="equipe" class="section reveal">
+      <h2><i class="fas fa-users"></i> Nossa Equipe</h2>
+      <div class="equipe-content">
+        <div class="equipe-destaque">
+          <div class="equipe-foto">
+            <img src="img/duda-rocha.jpg" alt="Duda Rocha - CEO da Interação Comunicação Criativa" />
           </div>
-          <div class="area-card">
-            <i class="fas fa-video"></i>
-            <span>Produção Audiovisual</span>
-          </div>
-          <div class="area-card">
-            <i class="fas fa-map-marked-alt"></i>
-            <span>Marketing Territorial</span>
-          </div>
-          <div class="area-card">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <span>Mentorias e Cursos</span>
+          <div class="equipe-info">
+            <h3>Duda Rocha</h3>
+            <span class="cargo">CEO & Fundadora</span>
+            <p>Profissional com mais de 25 anos de experiência no mercado cultural, audiovisual e turístico. Especialista em economia criativa, patrimônio cultural e desenvolvimento regional. Lidera a Interação com foco em soluções inovadoras que conectam territórios, memórias e pessoas.</p>
+            
+            <div class="equipe-credenciais">
+              <div class="credencial">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Especialista em Marketing Cultural</span>
+              </div>
+              <div class="credencial">
+                <i class="fas fa-award"></i>
+                <span>25+ Anos de Experiência</span>
+              </div>
+              <div class="credencial">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Especialista em Turismo Territorial</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -313,6 +448,13 @@
             <p>25 anos conectando territórios, memórias e pessoas</p>
           </div>
         </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>25 Anos de Experiência</h3>
+            <p>Mais de 200 projetos realizados em 50 cidades, com reconhecimento nacional e prêmios em festivais culturais. Especialistas em economia criativa, patrimônio cultural e desenvolvimento regional.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -426,6 +568,8 @@
         </div>
       </section>
       
+
+
     <section id="cta-final" class="section reveal">
       <div class="cta-container">
         <h2>Vamos criar algo incrível juntos?</h2>
@@ -558,14 +702,26 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>Interação</h3>
-        <p>Conectando territórios, preservando memórias e inspirando pessoas pelo Brasil há mais de 25 anos.</p>
+        <p>Empresa especializada em marketing cultural, turismo e produção audiovisual, com 25 anos de experiência no mercado brasileiro.</p>
+        <p><strong>CNPJ:</strong> XX.XXX.XXX/0001-XX</p>
       </div>
       
       <div class="footer-section">
-        <h3>Contato</h3>
+        <h3>Contato Corporativo</h3>
         <p><strong>E-mail:</strong> <a href="mailto:contato@interacao.com.br" aria-label="Enviar e-mail para contato@interacao.com.br">contato@interacao.com.br</a></p>
         <p><strong>WhatsApp:</strong> (54) 9 xxxx-xxxx</p>
         <p><strong>Endereço:</strong> Caxias do Sul, RS - Brasil</p>
+        <p><strong>Horário:</strong> Seg-Sex: 8h às 18h</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Áreas de Atuação</h3>
+        <ul class="footer-areas">
+          <li>Marketing Cultural</li>
+          <li>Produção Audiovisual</li>
+          <li>Turismo Territorial</li>
+          <li>Consultoria Cultural</li>
+        </ul>
       </div>
       
       <div class="footer-section">
@@ -579,7 +735,7 @@
             <i class="fab fa-instagram"></i>
             <span>Instagram</span>
           </a>
-          <a href="https://www.linkedin.com/in/dudarocha1979/" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn de Duda Rocha">
+          <a href="https://www.linkedin.com/company/interacao-comunicacao" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn da Interação">
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
           </a>

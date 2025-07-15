@@ -8,7 +8,7 @@ document.querySelectorAll("nav a").forEach(link => {
   
 // Menu mobile animado
 const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.getElementById('nav');
+const nav = document.querySelector('.nav-menu');
 const overlay = document.querySelector('.menu-overlay');
 
 function openMenu() {
@@ -16,6 +16,7 @@ function openMenu() {
   overlay.classList.add('active');
   menuToggle.setAttribute('aria-expanded', 'true');
 }
+
 function closeMenu() {
   nav.classList.remove('open');
   overlay.classList.remove('active');
@@ -29,15 +30,58 @@ menuToggle.addEventListener('click', () => {
     openMenu();
   }
 });
+
 overlay.addEventListener('click', closeMenu);
-document.querySelectorAll('#nav a').forEach(link => {
+
+document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     if (window.innerWidth <= 900) closeMenu();
   });
 });
 
+// Atualizar navegação ativa baseada no scroll
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  let current = '';
+  const scrollPosition = window.pageYOffset + 100; // Offset para melhor detecção
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  // Se estamos no topo da página, destacar "Início"
+  if (scrollPosition < 200) {
+    current = 'inicio';
+  }
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+
+// Função para scroll suave para seções
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 function scrollToContact() {
-  document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+  window.location.href = 'contato.html';
 }
   
 // Sistema de animações reveal ao scroll
@@ -184,6 +228,17 @@ function animateTimeline() {
   });
 }
 
+// Animação da timeline compacta
+function animateTimelineCompact() {
+  const timelineItems = document.querySelectorAll('.timeline-item-compact');
+  
+  timelineItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('active');
+    }, index * 150);
+  });
+}
+
 // Adicionar animação da linha do tempo ao scroll
 function checkTimeline() {
   const timeline = document.querySelector('.timeline');
@@ -196,7 +251,20 @@ function checkTimeline() {
   }
 }
 
+// Adicionar animação da timeline compacta ao scroll
+function checkTimelineCompact() {
+  const timelineCompact = document.querySelector('.timeline-compact');
+  if (timelineCompact) {
+    const timelineTop = timelineCompact.getBoundingClientRect().top;
+    if (timelineTop < window.innerHeight - 100) {
+      animateTimelineCompact();
+      window.removeEventListener('scroll', checkTimelineCompact);
+    }
+  }
+}
+
 window.addEventListener('scroll', checkTimeline);
+window.addEventListener('scroll', checkTimelineCompact);
   
 // Animação de contagem para estatísticas
 function animateCounter(element, target, duration = 2000) {
@@ -801,4 +869,201 @@ const instagramStyles = `
 `;
 
 document.head.insertAdjacentHTML('beforeend', instagramStyles);
+  
+// Funções para as novas páginas
+
+// Enviar formulário de contato
+function enviarFormulario(event) {
+  event.preventDefault();
+  
+  const formData = new FormData(event.target);
+  const dados = {
+    nome: formData.get('nome'),
+    email: formData.get('email'),
+    telefone: formData.get('telefone'),
+    empresa: formData.get('empresa'),
+    servico: formData.get('servico'),
+    mensagem: formData.get('mensagem'),
+    newsletter: formData.get('newsletter')
+  };
+  
+  // Simular envio do formulário
+  console.log('Dados do formulário:', dados);
+  
+  // Mostrar mensagem de sucesso
+  alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+  
+  // Limpar formulário
+  event.target.reset();
+}
+
+// Toggle FAQ
+function toggleFAQ(element) {
+  const faqItem = element.closest('.faq-item');
+  const isActive = faqItem.classList.contains('active');
+  
+  // Fechar todos os outros itens
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // Abrir o item clicado se não estava ativo
+  if (!isActive) {
+    faqItem.classList.add('active');
+  }
+}
+
+// Função para agendar reunião
+function agendarReuniao() {
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'agendamentoModal';
+  modal.innerHTML = `
+    <div class="modal-content" style="max-width: 500px;">
+      <span class="close" onclick="closeAgendamentoModal()">&times;</span>
+      <div style="padding: 20px;">
+        <h2 style="color: var(--verde); margin-bottom: 20px;">Agendar Reunião</h2>
+        <p>Para agendar uma reunião, entre em contato conosco através de:</p>
+        <ul style="margin: 20px 0; padding-left: 20px;">
+          <li><strong>WhatsApp:</strong> (54) 99999-9999</li>
+          <li><strong>E-mail:</strong> contato@interacao.comunicacao.com</li>
+          <li><strong>Telefone:</strong> (54) 99999-9999</li>
+        </ul>
+        <p>Nossa equipe entrará em contato para confirmar o horário e formato da reunião (presencial ou online).</p>
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="https://wa.me/5554999999999" target="_blank" rel="noopener" style="background: var(--verde); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block;">
+            <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  modal.style.display = 'block';
+}
+
+function closeAgendamentoModal() {
+  const modal = document.getElementById('agendamentoModal');
+  if (modal) {
+    modal.remove();
+  }
+}
+
+// Função para solicitar proposta
+function solicitarProposta() {
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'propostaModal';
+  modal.innerHTML = `
+    <div class="modal-content" style="max-width: 600px;">
+      <span class="close" onclick="closePropostaModal()">&times;</span>
+      <div style="padding: 20px;">
+        <h2 style="color: var(--verde); margin-bottom: 20px;">Solicitar Proposta</h2>
+        <p>Para solicitar uma proposta personalizada, preencha o formulário de contato ou entre em contato diretamente:</p>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <h3 style="color: var(--preto); margin-bottom: 15px;">Informações necessárias:</h3>
+          <ul style="margin: 0; padding-left: 20px;">
+            <li>Tipo de projeto ou serviço</li>
+            <li>Objetivos e resultados esperados</li>
+            <li>Cronograma desejado</li>
+            <li>Orçamento disponível (se aplicável)</li>
+            <li>Informações sobre sua empresa/organização</li>
+          </ul>
+        </div>
+        
+        <p><strong>Prazo para proposta:</strong> 5 dias úteis após o primeiro contato.</p>
+        
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="contato.html" style="background: var(--verde); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block; margin-right: 10px;">
+            <i class="fas fa-paper-plane"></i> Enviar Formulário
+          </a>
+          <a href="https://wa.me/5554999999999" target="_blank" rel="noopener" style="background: var(--azul); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block;">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  modal.style.display = 'block';
+}
+
+function closePropostaModal() {
+  const modal = document.getElementById('propostaModal');
+  if (modal) {
+    modal.remove();
+  }
+}
+
+// Função para baixar portfólio
+function baixarPortfolio() {
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.id = 'portfolioModal';
+  modal.innerHTML = `
+    <div class="modal-content" style="max-width: 500px;">
+      <span class="close" onclick="closePortfolioModal()">&times;</span>
+      <div style="padding: 20px; text-align: center;">
+        <h2 style="color: var(--verde); margin-bottom: 20px;">Portfólio Completo</h2>
+        <p>Nosso portfólio completo será disponibilizado em breve!</p>
+        <p>Enquanto isso, você pode:</p>
+        <ul style="text-align: left; margin: 20px 0;">
+          <li>Explorar nossos projetos na página de serviços</li>
+          <li>Ver nossos cases de sucesso</li>
+          <li>Entrar em contato para conhecer mais detalhes</li>
+        </ul>
+        <div style="margin-top: 30px;">
+          <a href="servicos.html" style="background: var(--verde); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block; margin-right: 10px;">
+            Ver Projetos
+          </a>
+          <a href="contato.html" style="background: var(--azul); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block;">
+            Solicitar Informações
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  modal.style.display = 'block';
+}
+
+function closePortfolioModal() {
+  const modal = document.getElementById('portfolioModal');
+  if (modal) {
+    modal.remove();
+  }
+}
+
+// Inicializar funcionalidades quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializar lazy loading
+  initLazyLoading();
+  optimizeImages();
+  
+  // Adicionar listeners para FAQ se existir
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+      const pergunta = item.querySelector('.faq-pergunta');
+      if (pergunta) {
+        pergunta.addEventListener('click', () => toggleFAQ(pergunta));
+      }
+    });
+  }
+  
+  // Adicionar listeners para links do menu
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      const sectionId = href.substring(1); // Remove o #
+      scrollToSection(sectionId);
+    });
+  });
+});
   

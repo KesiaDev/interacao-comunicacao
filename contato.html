@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Interação Comunicação Criativa</title>
+    <meta name="description" content="Entre em contato com a Interação Comunicação Criativa. Solicite uma proposta, agende uma reunião ou tire suas dúvidas.">
+    <link rel="icon" href="img/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="verde">Interação</span> Comunicação Criativa
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" onclick="openMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Botão Voltar ao Início -->
+    <div class="voltar-inicio">
+        <a href="index.html" class="btn-voltar">
+            <i class="fas fa-arrow-left"></i>
+            Voltar ao Início
+        </a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="particles"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Entre em <span class="verde">Contato</span></h1>
+                    <p>Vamos conversar sobre seu projeto e como podemos transformar sua ideia em realidade através da comunicação criativa.</p>
+                </div>
+                <div class="hero-media">
+                    <img src="img/duda-rocha.jpg" alt="Duda Rocha - Entre em contato">
+                </div>
+            </div>
+        </section>
+
+        <!-- Informações de Contato -->
+        <section class="section reveal">
+            <h2><i class="fas fa-address-book"></i> Informações de Contato</h2>
+            <div class="contato-grid">
+                <div class="contato-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-mail</h3>
+                    <p>contato@interacao.comunicacao.com</p>
+                    <a href="mailto:contato@interacao.comunicacao.com" class="contato-link">Enviar e-mail</a>
+                </div>
+                <div class="contato-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefone</h3>
+                    <p>(54) 99999-9999</p>
+                    <a href="tel:+5554999999999" class="contato-link">Ligar agora</a>
+                </div>
+                <div class="contato-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>(54) 99999-9999</p>
+                    <a href="https://wa.me/5554999999999" target="_blank" rel="noopener" class="contato-link">Enviar mensagem</a>
+                </div>
+                <div class="contato-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>Caxias do Sul, RS</p>
+                    <a href="#" class="contato-link">Ver no mapa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="section reveal">
+            <h2><i class="fas fa-paper-plane"></i> Envie sua Mensagem</h2>
+            <div class="formulario-container">
+                <form class="contato-form" onsubmit="enviarFormulario(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="servico">Tipo de Serviço</label>
+                        <select id="servico" name="servico">
+                            <option value="">Selecione um serviço</option>
+                            <option value="marketing-cultural">Marketing Cultural</option>
+                            <option value="turismo">Turismo e Enoturismo</option>
+                            <option value="audiovisual">Produção Audiovisual</option>
+                            <option value="politicas-publicas">Políticas Públicas</option>
+                            <option value="eventos">Eventos Culturais</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" value="sim">
+                            <span class="checkmark"></span>
+                            Quero receber novidades e cases da Interação
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-enviar">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Horário de Atendimento -->
+        <section class="section reveal">
+            <h2><i class="fas fa-clock"></i> Horário de Atendimento</h2>
+            <div class="horario-container">
+                <div class="horario-card">
+                    <h3>Segunda a Sexta</h3>
+                    <p>8h às 18h</p>
+                </div>
+                <div class="horario-card">
+                    <h3>Sábado</h3>
+                    <p>9h às 12h</p>
+                </div>
+                <div class="horario-card">
+                    <h3>Domingo</h3>
+                    <p>Fechado</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redes Sociais -->
+        <section class="section reveal">
+            <h2><i class="fas fa-share-alt"></i> Siga-nos nas Redes Sociais</h2>
+            <div class="redes-grid">
+                <a href="#" class="rede-card" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@interacao.comunicacao</p>
+                </a>
+                <a href="#" class="rede-card" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Interação Comunicação Criativa</p>
+                </a>
+                <a href="#" class="rede-card" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p>Interação Comunicação</p>
+                </a>
+                <a href="#" class="rede-card" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p>Interação Comunicação Criativa</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section reveal">
+            <h2><i class="fas fa-question-circle"></i> Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-pergunta" onclick="toggleFAQ(this)">
+                        <h3>Como funciona o processo de trabalho?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-resposta">
+                        <p>Nosso processo inclui diagnóstico, planejamento, execução e avaliação. Começamos entendendo suas necessidades e objetivos, desenvolvemos estratégias personalizadas e acompanhamos todo o projeto até a entrega final.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pergunta" onclick="toggleFAQ(this)">
+                        <h3>Quanto tempo leva para desenvolver um projeto?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-resposta">
+                        <p>O tempo varia conforme a complexidade do projeto. Projetos menores podem levar de 2 a 4 semanas, enquanto projetos mais complexos podem levar de 2 a 6 meses. Sempre definimos cronogramas claros no início.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pergunta" onclick="toggleFAQ(this)">
+                        <h3>Vocês atendem outras regiões além da Serra Gaúcha?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-resposta">
+                        <p>Sim! Atendemos todo o Brasil e também desenvolvemos projetos internacionais. Nossa experiência em diferentes territórios nos permite adaptar estratégias para cada contexto cultural.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-pergunta" onclick="toggleFAQ(this)">
+                        <h3>Como solicitar uma proposta?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-resposta">
+                        <p>Entre em contato através do formulário, e-mail ou WhatsApp. Agendaremos uma reunião para entender suas necessidades e desenvolveremos uma proposta personalizada em até 5 dias úteis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Interação Comunicação Criativa</h3>
+                <p>Conectando territórios, memórias e pessoas através da comunicação criativa desde 1999.</p>
+                <p><strong>Duda Rocha</strong> - Fundadora e Diretora</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-envelope"></i> contato@interacao.comunicacao.com</p>
+                <p><i class="fas fa-phone"></i> (54) 99999-9999</p>
+                <p><i class="fas fa-map-marker-alt"></i> Caxias do Sul, RS</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Interação Comunicação Criativa. Todos os direitos reservados.</p>
+            <p><a href="privacidade.html">Política de Privacidade</a> | <a href="termos.html">Termos de Uso</a></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5554999999999" class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html> 
