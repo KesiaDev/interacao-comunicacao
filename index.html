@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interação</title>
+  <title>Interação Comunicação Criativa | Duda Rocha</title>
+  <meta name="description" content="Interação Comunicação Criativa - Projetos culturais, turismo, audiovisual e marketing com Duda Rocha. Mais de 25 anos de experiência conectando territórios, memórias e pessoas." />
+  <meta name="keywords" content="Duda Rocha, Interação, comunicação, cultura, turismo, audiovisual, marketing, projetos culturais, consultoria, branding, storytelling, economia criativa, Caxias do Sul" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 
 </head>
 <body>
@@ -13,44 +16,384 @@
     <div class="logo">
         <img src="img/logo-interacao.png" alt="Logo Interação" />
       </div>
-      <nav>
+      <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="nav" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="nav">
         <ul>
-          <li><a href="#inicio">Início</a></li>
+          <li><a href="#inicio" class="active">Início</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-      
+      <div class="menu-overlay"></div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-        <img src="img/equipe.jpg" alt="Equipe trabalhando" />
-        <h1>Marketing, cultura e <span class="verde">turismo</span> <strong>criativos</strong></h1>
-        <p>Mais de 25 anos de experiência conectando territórios, preservando memórias e inspirando pessoas pelo Brasil.</p>
-        <button onclick="saibaMais()">Saiba mais</button>
-      </section>
+      <div class="hero-background">
+        <div class="particles"></div>
+      </div>
       
-    <section id="sobre" class="section">
-        <h2>Sobre</h2>
-        <p>A Interação nasceu com o propósito de conectar pessoas, ideias e territórios por meio da cultura, turismo e comunicação. Somos especialistas em criar experiências que geram impacto social, cultural e econômico.</p>
-      </section>
+      <div class="hero-content">
+        <div class="hero-media">
+          <video class="hero-video" autoplay muted loop playsinline poster="img/equipe.jpg">
+            <source src="img/hero-video.mp4" type="video/mp4">
+            <img src="img/equipe.jpg" alt="Equipe trabalhando" />
+          </video>
+        </div>
+        
+        <div class="hero-text">
+          <h1>Marketing, cultura e <span class="verde">turismo</span> <strong>criativos</strong></h1>
+          <p>Mais de 25 anos de experiência conectando territórios, preservando memórias e inspirando pessoas pelo Brasil.</p>
+          <div class="hero-buttons">
+            <button class="cta-primary" onclick="saibaMais()">
+              <span>Veja nossos projetos de impacto</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="cta-secondary" onclick="scrollToContact()">
+              <span>Converse com a gente agora</span>
+              <i class="fas fa-comments"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="estatisticas" class="section reveal">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="200">0</div>
+          <div class="stat-label">Projetos Culturais</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Cidades Atendidas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-label">Anos Conectando Territórios</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Prêmios e Reconhecimentos</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section sobre-flex reveal">
+      <div class="sobre-img">
+        <img src="img/duda-rocha.jpg" alt="Duda Rocha" />
+      </div>
+      <div class="sobre-texto">
+        <h2>Sobre Duda Rocha</h2>
+        <p>Profissional com mais de 25 anos de experiência no mercado cultural, audiovisual e turístico. Atua na elaboração e gestão de projetos culturais, produção audiovisual, comunicação estratégica e marketing territorial. Como empresária da Interação, desenvolve soluções criativas e sustentáveis que conectam territórios, memórias e pessoas. Pesquisadora em economia criativa, patrimônio cultural e desenvolvimento regional.</p>
+        <div class="sobre-areas">
+          <div class="area-card">
+            <i class="fas fa-lightbulb"></i>
+            <span>Projetos Culturais</span>
+          </div>
+          <div class="area-card">
+            <i class="fas fa-video"></i>
+            <span>Produção Audiovisual</span>
+          </div>
+          <div class="area-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Marketing Territorial</span>
+          </div>
+          <div class="area-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Mentorias e Cursos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta-meio" class="section reveal">
+      <div class="cta-container">
+        <h2>Pronto para transformar seu projeto?</h2>
+        <p>Conectamos territórios, preservamos memórias e inspiramos pessoas há mais de 25 anos.</p>
+        <div class="cta-buttons">
+          <button class="cta-primary" onclick="solicitarProposta()">
+            <span>Solicitar Proposta</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <button class="cta-secondary" onclick="baixarPortfolio()">
+            <span>Baixar Portfólio Completo</span>
+            <i class="fas fa-download"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="atuacao" class="section reveal">
+      <h2><i class="fas fa-lightbulb"></i> Áreas de Atuação</h2>
+      <div class="atuacao-grid">
+        <div class="atuacao-card">
+          <i class="fas fa-university"></i>
+          <h3>Projetos Culturais</h3>
+          <p>Elaboração e gestão completa (incentivos e editais).</p>
+        </div>
+        <div class="atuacao-card">
+          <i class="fas fa-video"></i>
+          <h3>Produção Audiovisual</h3>
+          <p>Documentários, institucionais, educacionais e culturais.</p>
+        </div>
+        <div class="atuacao-card">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Marketing Cultural e Territorial</h3>
+          <p>Planejamento e execução de comunicação para cultura e turismo.</p>
+        </div>
+        <div class="atuacao-card">
+          <i class="fas fa-bullhorn"></i>
+          <h3>Comunicação e Marketing Corporativo</h3>
+          <p>Branding, campanhas, endomarketing e estratégia.</p>
+        </div>
+        <div class="atuacao-card">
+          <i class="fas fa-feather-alt"></i>
+          <h3>Storytelling e Roteiros</h3>
+          <p>Criação de narrativas culturais, institucionais e turísticas.</p>
+        </div>
+        <div class="atuacao-card">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h3>Mentorias e Cursos</h3>
+          <p>Economia criativa, turismo cultural e comunicação estratégica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section reveal">
+      <h2><i class="fas fa-folder-open"></i> Portfólio de Projetos</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card" data-project="som-luz">
+          <i class="fas fa-star"></i>
+          <div>
+            <h3>Som, Luz e Imagem (Festa da Uva)</h3>
+            <p>Espetáculo cênico premiado que resgatou a memória e identidade da região.</p>
+            <button class="btn-modal" onclick="openModal('som-luz')">Ver detalhes</button>
+          </div>
+        </div>
+        <div class="portfolio-card" data-project="domadores">
+          <i class="fas fa-video"></i>
+          <div>
+            <h3>Domadores de Pedra</h3>
+            <p>Documentário sobre escultores e patrimônio cultural do RS.</p>
+            <button class="btn-modal" onclick="openModal('domadores')">Ver detalhes</button>
+          </div>
+        </div>
+        <div class="portfolio-card" data-project="tv-caxias">
+          <i class="fas fa-tv"></i>
+          <div>
+            <h3>TV Caxias</h3>
+            <p>Programação comunitária e transmissões ao vivo de eventos culturais.</p>
+            <button class="btn-modal" onclick="openModal('tv-caxias')">Ver detalhes</button>
+          </div>
+        </div>
+        <div class="portfolio-card" data-project="pascoa">
+          <i class="fas fa-seedling"></i>
+          <div>
+            <h3>Páscoa Della Vita (Farroupilha)</h3>
+            <p>Criação e execução do evento temático.</p>
+            <button class="btn-modal" onclick="openModal('pascoa')">Ver detalhes</button>
+          </div>
+        </div>
+        <div class="portfolio-card" data-project="natal">
+          <i class="fas fa-tree"></i>
+          <div>
+            <h3>Natal Itinerante</h3>
+            <p>Projeto social durante a pandemia, levando esperança a comunidades.</p>
+            <button class="btn-modal" onclick="openModal('natal')">Ver detalhes</button>
+          </div>
+        </div>
+        <div class="portfolio-card" data-project="vinicolas">
+          <i class="fas fa-wine-glass-alt"></i>
+          <div>
+            <h3>Vinícolas e Turismo Regional</h3>
+            <p>Planejamento de enoturismo e eventos para vinícolas familiares.</p>
+            <button class="btn-modal" onclick="openModal('vinicolas')">Ver detalhes</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline" class="section reveal">
+      <h2><i class="fas fa-clock"></i> 25 Anos de Experiência</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>1999</h3>
+            <p>Início da jornada na comunicação e cultura</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2005</h3>
+            <p>Primeiros projetos audiovisuais e documentários</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2010</h3>
+            <p>Especialização em marketing territorial e turismo cultural</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2015</h3>
+            <p>Expansão para consultoria em políticas públicas culturais</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2020</h3>
+            <p>Adaptação digital e projetos inovadores durante a pandemia</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2024</h3>
+            <p>25 anos conectando territórios, memórias e pessoas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pesquisa" class="section reveal">
+      <h2><i class="fas fa-search"></i> Publicações e Pesquisa</h2>
+      <div class="pesquisa-grid">
+        <div class="pesquisa-card">
+          <i class="fas fa-book-open"></i>
+          <div>
+            <h3>Artigos Acadêmicos</h3>
+            <p class="resumo">Autora de artigos acadêmicos sobre turismo, memória e patrimônio.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Publicações em revistas científicas nacionais e internacionais, com foco em economia criativa, desenvolvimento regional e preservação patrimonial. Artigos que contribuem para o debate acadêmico sobre turismo cultural sustentável.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+        <div class="pesquisa-card">
+          <i class="fas fa-book"></i>
+          <div>
+            <h3>Capítulos em Livros</h3>
+            <p class="resumo">Coautora de capítulos em livros internacionais sobre patrimônio cultural.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Participação em obras coletivas publicadas por editoras renomadas, abordando temas como gestão cultural, políticas públicas e inovação social. Contribuições que estabelecem diálogos entre teoria e prática.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+        <div class="pesquisa-card">
+          <i class="fas fa-film"></i>
+          <div>
+            <h3>Documentários e Espetáculos</h3>
+            <p class="resumo">Documentários e espetáculos culturais premiados por leis de incentivo.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Produções audiovisuais que retratam a riqueza cultural brasileira, premiadas em festivais nacionais e internacionais. Espetáculos que resgatam memórias e fortalecem identidades territoriais.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="section reveal">
+      <h2><i class="fas fa-handshake"></i> Clientes e Parceiros Atendidos</h2>
+      <div class="clientes-grid">
+        <div class="cliente-card" title="Fras-le">
+          <img src="img/cliente-frasle.png" alt="Fras-le" />
+        </div>
+        <div class="cliente-card" title="Unimed Nordeste">
+          <img src="img/cliente-unimed.png" alt="Unimed Nordeste" />
+        </div>
+        <div class="cliente-card" title="Randon Implementos">
+          <img src="img/cliente-randon.png" alt="Randon Implementos" />
+        </div>
+        <div class="cliente-card" title="Prolar Imobiliária">
+          <img src="img/cliente-prolar.png" alt="Prolar Imobiliária" />
+        </div>
+        <div class="cliente-card" title="Rede Multimercados">
+          <img src="img/cliente-rede-multimercados.png" alt="Rede Multimercados" />
+        </div>
+        <div class="cliente-card" title="NL Informática">
+          <img src="img/cliente-nl-informatica.png" alt="NL Informática" />
+        </div>
+        <div class="cliente-card" title="Sindicato dos Metalúrgicos">
+          <img src="img/cliente-metalurgicos.png" alt="Sindicato dos Metalúrgicos" />
+        </div>
+        <div class="cliente-card" title="Sindilojas Farroupilha">
+          <img src="img/cliente-sindilojas.png" alt="Sindilojas Farroupilha" />
+        </div>
+        <div class="cliente-card" title="Luiz Argenta Vinhos Finos">
+          <img src="img/cliente-luiz-argenta.png" alt="Luiz Argenta Vinhos Finos" />
+        </div>
+        <div class="cliente-card" title="Mioranza Vinhos">
+          <img src="img/cliente-mioranza.png" alt="Mioranza Vinhos" />
+        </div>
+        <div class="cliente-card" title="Instituto Cultural do Trigo">
+          <img src="img/cliente-trigo.png" alt="Instituto Cultural do Trigo" />
+        </div>
+        <div class="cliente-card" title="Espaço 3 Arquitetura">
+          <img src="img/cliente-espaco3.png" alt="Espaço 3 Arquitetura" />
+        </div>
+        <div class="cliente-card outros">
+          <span>Outros</span>
+        </div>
+      </div>
+    </section>
       
-      <section id="servicos" class="section">
+      <section id="servicos" class="section reveal">
         <h2>Serviços</h2>
-        <ul>
-          <li>Marketing territorial e cultural</li>
-          <li>Planejamento e gestão de projetos turísticos</li>
-          <li>Produção de conteúdos criativos e audiovisuais</li>
-          <li>Consultoria em políticas públicas e culturais</li>
-        </ul>
+        <div class="servicos-grid">
+          <div class="servico-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Marketing territorial e cultural</h3>
+            <p>Estratégias para valorizar territórios e culturas, promovendo identidade e desenvolvimento local.</p>
+          </div>
+          <div class="servico-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3>Planejamento e gestão de projetos turísticos</h3>
+            <p>Gestão completa de projetos turísticos, do planejamento à execução, com foco em resultados sustentáveis.</p>
+          </div>
+          <div class="servico-card">
+            <i class="fas fa-video"></i>
+            <h3>Produção de conteúdos criativos e audiovisuais</h3>
+            <p>Criação de conteúdos inovadores, vídeos e materiais que engajam e comunicam com eficiência.</p>
+          </div>
+          <div class="servico-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3>Consultoria em políticas públicas e culturais</h3>
+            <p>Consultoria especializada para elaboração e implementação de políticas públicas e culturais.</p>
+          </div>
+        </div>
       </section>
       
-      <section id="contato" class="section">
-        <h2>Contato</h2>
-        <p>Quer colaborar conosco? Entre em contato pelo e-mail: <a href="mailto:contato@interacao.com.br">contato@interacao.com.br</a> ou pelo WhatsApp (54) 9 xxxx-xxxx.</p>
-      </section>
+    <section id="cta-final" class="section reveal">
+      <div class="cta-container">
+        <h2>Vamos criar algo incrível juntos?</h2>
+        <p>Entre em contato e vamos transformar sua ideia em realidade.</p>
+        <div class="cta-buttons">
+          <button class="cta-primary" onclick="scrollToContact()">
+            <span>Fale Conosco Agora</span>
+            <i class="fas fa-comments"></i>
+          </button>
+          <button class="cta-secondary" onclick="agendarReuniao()">
+            <span>Agendar Reunião</span>
+            <i class="fas fa-calendar-alt"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+      
   </main>
 
   <footer>
@@ -62,7 +405,7 @@
       
       <div class="footer-section">
         <h3>Contato</h3>
-        <p><strong>E-mail:</strong> <a href="mailto:contato@interacao.com.br">contato@interacao.com.br</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:contato@interacao.com.br" aria-label="Enviar e-mail para contato@interacao.com.br">contato@interacao.com.br</a></p>
         <p><strong>WhatsApp:</strong> (54) 9 xxxx-xxxx</p>
         <p><strong>Endereço:</strong> Caxias do Sul, RS - Brasil</p>
       </div>
@@ -70,19 +413,19 @@
       <div class="footer-section">
         <h3>Redes Sociais</h3>
         <div class="social-links">
-          <a href="#" class="social-link">
+          <a href="#" class="social-link" aria-label="Acessar Facebook da Interação">
             <i class="fab fa-facebook"></i>
             <span>Facebook</span>
           </a>
-          <a href="#" class="social-link">
+          <a href="#" class="social-link" aria-label="Acessar Instagram da Interação">
             <i class="fab fa-instagram"></i>
             <span>Instagram</span>
           </a>
-          <a href="#" class="social-link">
+          <a href="https://www.linkedin.com/in/dudarocha1979/" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn de Duda Rocha">
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
           </a>
-          <a href="#" class="social-link">
+          <a href="#" class="social-link" aria-label="Acessar YouTube da Interação">
             <i class="fab fa-youtube"></i>
             <span>YouTube</span>
           </a>
@@ -91,10 +434,23 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2024 Interação. Todos os direitos reservados.</p>
+      <p>&copy; 2024 Interação. Todos os direitos reservados. &nbsp;|&nbsp; <a href="privacidade.html" aria-label="Política de Privacidade">Política de Privacidade</a> &nbsp;|&nbsp; <a href="termos.html" aria-label="Termos de Uso">Termos de Uso</a></p>
     </div>
   </footer>
 
+  <a href="https://wa.me/5554990000000?text=Olá!%20Quero%20saber%20mais%20sobre%20seus%20serviços." class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp" rel="noopener" aria-label="Fale conosco no WhatsApp pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
   <script src="script.js"></script>
 </body>
 </html>
+
+<!-- Modal para portfólio -->
+<div id="portfolioModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalContent">
+      <!-- Conteúdo será carregado dinamicamente -->
+    </div>
+  </div>
+</div>
