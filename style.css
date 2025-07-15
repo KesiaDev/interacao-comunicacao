@@ -149,10 +149,10 @@ footer {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(141, 198, 63, 0.1);
+    background: rgba(141, 198, 63, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: none;
     transition: all 0.3s ease;
   }
 
@@ -160,10 +160,29 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding: 0px 60px;
     max-width: 1400px;
     margin: 0 auto;
+    background: rgba(141, 198, 63, 0.1);
+    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
   }
+
+      .header-container.scrolled {
+      background: rgba(141, 198, 63, 0.15);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .modern-header.scrolled {
+      background: rgba(141, 198, 63, 0.15);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-bottom: none;
+    }
 
   .logo-container {
     display: flex;
@@ -593,15 +612,23 @@ footer {
   }
 
   .logo img {
-    height: 160px;
+    height: 80px;
     width: auto;
     max-width: 100%;
-    transition: height 0.2s;
+    transition: height 0.3s ease;
+  }
+
+  .header-container.scrolled .logo img {
+    height: 25px;
   }
 
   @media (max-width: 700px) {
     .logo img {
-      height: 90px;
+      height: 80px;
+    }
+    
+    .header-container.scrolled .logo img {
+      height: 18px;
     }
   }
   

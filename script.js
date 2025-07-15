@@ -1067,3 +1067,17 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
   
+// Transparência dinâmica do header ao rolar
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.header-container');
+  const modernHeader = document.querySelector('.modern-header');
+  if (!header) return;
+  if (window.scrollY > 30) {
+    header.classList.add('scrolled');
+    if (modernHeader) modernHeader.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+    if (modernHeader) modernHeader.classList.remove('scrolled');
+  }
+});
+  
