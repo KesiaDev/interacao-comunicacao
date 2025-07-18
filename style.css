@@ -149,36 +149,38 @@ footer {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(141, 198, 63, 0.1);
+    background: linear-gradient(135deg, var(--branco) 0%, var(--verde-claro) 50%, var(--verde) 100%);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-bottom: none;
     transition: all 0.3s ease;
+    padding: 10px 0;
+    will-change: transform;
   }
 
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 60px;
+    padding: 0px 40px;
     max-width: 1400px;
     margin: 0 auto;
-    background: rgba(141, 198, 63, 0.1);
+    background: transparent;
     transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     box-shadow: none;
+    gap: 100px;
   }
 
       .header-container.scrolled {
-      background: rgba(141, 198, 63, 0.15);
+      background: transparent;
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
-      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
     }
 
     .modern-header.scrolled {
-      background: rgba(141, 198, 63, 0.15);
+      background: linear-gradient(135deg, var(--branco) 0%, var(--verde-claro) 50%, var(--verde) 100%);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       border-bottom: none;
@@ -200,7 +202,7 @@ footer {
   .logo-text {
     display: flex;
     align-items: baseline;
-    font-size: 2.2rem;
+    font-size: 16rem;
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.5px;
@@ -261,7 +263,7 @@ footer {
   .nav-menu ul {
     display: flex;
     list-style: none;
-    gap: 50px;
+    gap: 80px;
     margin: 0;
     padding: 0;
   }
@@ -284,22 +286,7 @@ footer {
     z-index: 2;
   }
 
-  .nav-indicator {
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-  }
 
-  .nav-link:hover .nav-indicator,
-  .nav-link.active .nav-indicator {
-    width: 100%;
-  }
 
   .nav-link:hover {
     color: var(--verde);
@@ -335,7 +322,8 @@ footer {
   /* Responsividade */
   @media (max-width: 900px) {
     .header-container {
-      padding: 18px 40px;
+      padding: 18px 15px 18px 25px;
+      gap: 60px;
     }
 
     .nav-menu {
@@ -376,7 +364,7 @@ footer {
     }
 
     .logo-text {
-      font-size: 1.9rem;
+      font-size: 13rem;
     }
 
     .logo-tagline {
@@ -386,11 +374,12 @@ footer {
 
   @media (max-width: 600px) {
     .header-container {
-      padding: 16px 25px;
+      padding: 16px 10px 16px 20px;
+      gap: 40px;
     }
 
     .logo-text {
-      font-size: 1.7rem;
+      font-size: 11rem;
     }
 
     .logo-dots {
@@ -612,23 +601,42 @@ footer {
   }
 
   .logo img {
-    height: 80px;
+    height: 160px;
     width: auto;
     max-width: 100%;
     transition: height 0.3s ease;
+    animation: logoFadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  @keyframes logoFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .logo img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
   }
 
   .header-container.scrolled .logo img {
-    height: 25px;
+    height: 50px;
   }
 
   @media (max-width: 700px) {
     .logo img {
-      height: 80px;
+      height: 140px;
     }
     
     .header-container.scrolled .logo img {
-      height: 18px;
+      height: 40px;
     }
   }
   
@@ -651,27 +659,9 @@ footer {
     transition: color 0.2s;
   }
 
-  nav ul li a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 0;
-    background: var(--verde);
-    border-radius: 2px;
-    transition: width 0.3s cubic-bezier(.77,0,.18,1);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
-
   nav ul li a:hover,
   nav ul li a:focus {
     color: var(--verde);
-  }
-
-  nav ul li a:hover::after,
-  nav ul li a:focus::after {
-    width: 100%;
   }
   
   .hero {
@@ -1705,9 +1695,6 @@ button:hover, .whatsapp-float:hover {
 /* Destaque visual para item ativo do menu */
 nav ul li a.active, nav ul li a[aria-current="page"] {
   color: var(--verde);
-}
-nav ul li a.active::after, nav ul li a[aria-current="page"]::after {
-  width: 100%;
 }
 
 /* Tooltip nas logos dos clientes */
