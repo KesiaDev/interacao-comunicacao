@@ -45,7 +45,8 @@ function updateActiveNav() {
   const navLinks = document.querySelectorAll('.nav-link');
   
   let current = '';
-  const scrollPosition = window.pageYOffset + 100; // Offset para melhor detecção
+  const headerHeight = 100;
+  const scrollPosition = window.pageYOffset + headerHeight + 50; // Offset considerando header fixo
   
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
@@ -56,7 +57,7 @@ function updateActiveNav() {
     }
   });
   
-  // Se estamos no topo da página, destacar "Início"
+  // Se estamos no topo da página, destacar "Trabalho"
   if (scrollPosition < 200) {
     current = 'inicio';
   }
@@ -72,16 +73,88 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', updateActiveNav);
 
+// Controle de visibilidade do CTA flutuante
+function controlCTAFloat() {
+  const ctaFloat = document.getElementById('ctaFloat');
+  if (!ctaFloat) return;
+  
+  const scrollPosition = window.pageYOffset;
+  const documentHeight = document.documentElement.scrollHeight;
+  
+  // Mostrar CTA flutuante após 30% do scroll ou quando estiver próximo do final
+  const showThreshold = documentHeight * 0.3;
+  const hideThreshold = documentHeight * 0.8;
+  
+  if (scrollPosition > showThreshold && scrollPosition < hideThreshold) {
+    ctaFloat.classList.add('visible');
+  } else {
+    ctaFloat.classList.remove('visible');
+  }
+}
+
+// Inicializar CTA flutuante
+window.addEventListener('scroll', controlCTAFloat);
+window.addEventListener('load', controlCTAFloat);
+
+// Controle do vídeo de fundo
+function initBackgroundVideo() {
+  const video = document.querySelector('.banner-sobre-video');
+  if (video) {
+    // Garantir que o vídeo carregue corretamente
+    video.addEventListener('loadeddata', function() {
+      video.play().catch(function(error) {
+        console.log('Vídeo não pôde ser reproduzido automaticamente:', error);
+      });
+    });
+
+    // Pausar vídeo quando não estiver visível para economizar recursos
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(video);
+  }
+}
+
+// Inicializar vídeo de fundo
+window.addEventListener('load', initBackgroundVideo);
+
 // Função para scroll suave para seções
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    const headerHeight = 100; // Altura do header fixo
+    const sectionTop = section.offsetTop - headerHeight - 20; // Adiciona 20px de margem extra
+    
+    window.scrollTo({
+      top: sectionTop,
+      behavior: 'smooth'
+    });
   }
 }
 
 function scrollToContact() {
   window.location.href = 'contato.html';
+}
+
+// Função específica para scroll para seção de clientes/parceiros
+function scrollToClientes() {
+  const clientesSection = document.getElementById('clientes');
+  if (clientesSection) {
+    const headerHeight = 100; // Aumentado para considerar padding e outros elementos
+    const sectionTop = clientesSection.offsetTop - headerHeight - 150; // Adiciona 150px de margem extra
+    
+    window.scrollTo({
+      top: sectionTop,
+      behavior: 'smooth'
+    });
+  }
 }
   
 // Sistema de animações reveal ao scroll
@@ -1067,17 +1140,53 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
   
-// Transparência dinâmica do header ao rolar
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('.header-container');
-  const modernHeader = document.querySelector('.modern-header');
-  if (!header) return;
-  if (window.scrollY > 30) {
-    header.classList.add('scrolled');
-    if (modernHeader) modernHeader.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-    if (modernHeader) modernHeader.classList.remove('scrolled');
-  }
-});
+// Cards de frases progressivas
+function mostrarCardsProgressivos() {
+  const cards = document.querySelectorAll('#frase1, #frase2, #frase3');
+  let delay = 0;
+  
+  cards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (cardTop < windowHeight * 0.8 && !card.classList.contains('visible')) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, delay);
+      delay += 600;
+    }
+  });
+}
+
+window.addEventListener('scroll', mostrarCardsProgressivos);
+window.addEventListener('load', mostrarCardsProgressivos);
+
+// Controle dos vídeos de fundo dos valores
+function initValoresVideos() {
+  const valorVideos = document.querySelectorAll('.valor-video');
+  
+  valorVideos.forEach(video => {
+    // Pausar vídeo quando não está visível
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    observer.observe(video);
+    
+    // Garantir que o vídeo carregue corretamente
+    video.addEventListener('loadeddata', () => {
+      video.play();
+    });
+  });
+}
+
+window.addEventListener('load', initValoresVideos);
+  
+
   

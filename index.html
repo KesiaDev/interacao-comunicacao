@@ -22,22 +22,24 @@
       
       <nav class="nav-menu">
         <ul>
-          <li><a href="#inicio" class="nav-link active">
-            <span>Início</span>
+          <li><a href="#trabalho" class="nav-link active">
+            <span>Trabalho</span>
+          </a></li>
+          <li><a href="#clientes" class="nav-link" onclick="scrollToClientes(); return false;">
+            <span>Parceiros</span>
           </a></li>
           <li><a href="#sobre" class="nav-link">
             <span>Sobre</span>
           </a></li>
-          <li><a href="#servicos" class="nav-link">
-            <span>Serviços</span>
+          <li><a href="#compromissos" class="nav-link">
+            <span>Compromissos</span>
           </a></li>
-          <li><a href="#equipe" class="nav-link">
-            <span>Equipe</span>
+          <li><a href="#consultoria" class="nav-link">
+            <span>Consultoria e Capacitação</span>
           </a></li>
           <li><a href="#contato" class="nav-link">
             <span>Contato</span>
           </a></li>
-
         </ul>
       </nav>
       
@@ -58,196 +60,289 @@
       </div>
       
       <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <i class="fas fa-star"></i>
-            <span>25 Anos de Experiência</span>
-          </div>
-          <h1>Marketing, cultura e <span class="verde">turismo</span> <strong>criativos</strong></h1>
-          <p class="hero-subtitle">Soluções completas em comunicação criativa, com 25 anos de experiência conectando territórios, preservando memórias e inspirando pessoas pelo Brasil.</p>
-          
-          <div class="hero-features">
-            <div class="feature-item">
-              <i class="fas fa-map-marked-alt"></i>
-              <span>Marketing Territorial</span>
+        <div class="areas-container">
+          <!-- Marketing -->
+          <div class="area-section marketing-section">
+            <div class="area-background marketing-bg"></div>
+            <div class="area-content">
+              <h3>Marketing</h3>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-video"></i>
-              <span>Produção Audiovisual</span>
-            </div>
-            <div class="feature-item">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Eventos Culturais</span>
+            <div class="hover-card marketing-card">
+              <div class="card-content">
+                <h4>Marketing</h4>
+                <ul>
+                  <li>Varejo</li>
+                  <li>Indústria</li>
+                  <li>Serviços</li>
+                </ul>
+              </div>
             </div>
           </div>
           
-          <div class="hero-buttons">
-            <button class="cta-primary" onclick="saibaMais()">
-              <span>Veja nossos projetos de impacto</span>
-              <i class="fas fa-arrow-right"></i>
-            </button>
-            <button class="cta-secondary" onclick="scrollToContact()">
-              <span>Converse com a gente agora</span>
-              <i class="fas fa-comments"></i>
-            </button>
+          <!-- Linha divisória -->
+          <div class="divider-line-vertical"></div>
+          
+          <!-- Cultura -->
+          <div class="area-section cultura-section">
+            <div class="area-background cultura-bg"></div>
+            <div class="area-content">
+              <h3>Cultura</h3>
+            </div>
+            <div class="hover-card cultura-card">
+              <div class="card-content">
+                <h4>Cultura</h4>
+                <ul>
+                  <li>Economia Criativa</li>
+                  <li>Projetos Culturais</li>
+                  <li>Pesquisa</li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="hero-media">
-          <div class="hero-image-container">
-            <video class="hero-video" autoplay muted loop playsinline poster="img/equipe.jpg">
-              <source src="img/hero-video.mp4" type="video/mp4">
-              <img src="img/equipe.jpg" alt="Equipe trabalhando" />
-            </video>
-            <div class="hero-floating-card">
-              <i class="fas fa-award"></i>
-              <span>Especialistas em Cultura</span>
+          
+          <!-- Linha divisória -->
+          <div class="divider-line-vertical"></div>
+          
+          <!-- Turismo -->
+          <div class="area-section turismo-section">
+            <div class="area-background turismo-bg"></div>
+            <div class="area-content">
+              <h3>Turismo</h3>
+            </div>
+            <div class="hover-card turismo-card">
+              <div class="card-content">
+                <h4>Turismo</h4>
+                <ul>
+                  <li>Eventos</li>
+                  <li>Atrativos</li>
+                  <li>Pesquisa</li>
+                  <li>Consultoria</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Banner de Clientes -->
+    <section id="clientes" class="section reveal">
+      <div class="clientes-banner">
+        <div class="banner-header">
+          <h2><i class="fas fa-handshake"></i> Clientes e Parceiros Atendidos</h2>
+          <p>Empresas de todos os tamanhos, a mesma energia dedicada a cada cliente</p>
+        </div>
+        
+        <div class="banner-logos">
+          <div class="logos-row" id="bannerCarousel">
+            <!-- Primeira linha de logos -->
+            <div class="logo-banner-item">
+              <img src="img/cliente-frasle.png" alt="Fras-le" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-unimed.png" alt="Unimed" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-randon.png" alt="Randon Implementos" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-prolar.png" alt="Prolar" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-rede-multimercados.png" alt="Rede Multimercados" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-nl-informatica.png" alt="NL Informática" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-metalurgicos.png" alt="Sindicato dos Metalúrgicos" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-sindilojas.png" alt="Sindilojas" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-luiz-argenta.png" alt="Luiz Argenta" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-mioranza.png" alt="Mioranza" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-trigo.png" alt="Instituto do Trigo" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-espaco3.png" alt="Espaço 3" />
+            </div>
+            
+            <!-- Duplicação para loop infinito -->
+            <div class="logo-banner-item">
+              <img src="img/cliente-frasle.png" alt="Fras-le" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-unimed.png" alt="Unimed" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-randon.png" alt="Randon Implementos" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-prolar.png" alt="Prolar" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-rede-multimercados.png" alt="Rede Multimercados" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-nl-informatica.png" alt="NL Informática" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-metalurgicos.png" alt="Sindicato dos Metalúrgicos" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-sindilojas.png" alt="Sindilojas" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-luiz-argenta.png" alt="Luiz Argenta" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-mioranza.png" alt="Mioranza" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-trigo.png" alt="Instituto do Trigo" />
+            </div>
+            <div class="logo-banner-item">
+              <img src="img/cliente-espaco3.png" alt="Espaço 3" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="banner-cta-mini">
+          <h4>Quer fazer parte dessa história?</h4>
+          <button class="cta-mini-btn" onclick="agendarReuniao()">
+            <span>Saiba mais</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
 
     <!-- Por que nos escolher -->
-    <section id="diferenciais" class="section reveal">
-      <h2><i class="fas fa-star"></i> Por que nos escolher?</h2>
-      <div class="diferenciais-grid">
-        <div class="diferencial-card">
-          <div class="diferencial-icon">
-            <i class="fas fa-heart"></i>
+    <section id="diferenciais" class="banner-diferenciais-container">
+      <div class="banner-diferenciais-content">
+        <h2><i class="fas fa-star"></i> Por que nos escolher?</h2>
+        <div class="diferenciais-grid">
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Paixão pela Cultura</h3>
+            <p>25 anos dedicados à preservação e valorização da cultura brasileira, com projetos que resgatam memórias e fortalecem identidades territoriais.</p>
           </div>
-          <h3>Paixão pela Cultura</h3>
-          <p>25 anos dedicados à preservação e valorização da cultura brasileira, com projetos que resgatam memórias e fortalecem identidades territoriais.</p>
-        </div>
-        <div class="diferencial-card">
-          <div class="diferencial-icon">
-            <i class="fas fa-users"></i>
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Experiência Comprovada</h3>
+            <p>Mais de 200 projetos realizados em 50 cidades, com reconhecimento nacional e prêmios em festivais culturais.</p>
           </div>
-          <h3>Experiência Comprovada</h3>
-          <p>Mais de 200 projetos realizados em 50 cidades, com reconhecimento nacional e prêmios em festivais culturais.</p>
-        </div>
-        <div class="diferencial-card">
-          <div class="diferencial-icon">
-            <i class="fas fa-lightbulb"></i>
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Inovação Criativa</h3>
+            <p>Soluções inovadoras que combinam tecnologia, arte e cultura para criar experiências únicas e memoráveis.</p>
           </div>
-          <h3>Inovação Criativa</h3>
-          <p>Soluções inovadoras que combinam tecnologia, arte e cultura para criar experiências únicas e memoráveis.</p>
-        </div>
-        <div class="diferencial-card">
-          <div class="diferencial-icon">
-            <i class="fas fa-handshake"></i>
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Parceria Completa</h3>
+            <p>Do planejamento à execução, acompanhamos cada etapa do seu projeto com dedicação e expertise especializada.</p>
           </div>
-          <h3>Parceria Completa</h3>
-          <p>Do planejamento à execução, acompanhamos cada etapa do seu projeto com dedicação e expertise especializada.</p>
         </div>
       </div>
     </section>
 
-    <section id="estatisticas" class="section reveal">
-      <h2><i class="fas fa-chart-line"></i> Nossos Números</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number" data-target="200">0</div>
-          <div class="stat-label">Projetos Culturais</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="50">0</div>
-          <div class="stat-label">Cidades Atendidas</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="25">0</div>
-          <div class="stat-label">Anos Conectando Territórios</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="15">0</div>
-          <div class="stat-label">Prêmios e Reconhecimentos</div>
-        </div>
-      </div>
-    </section>
+
 
     <section id="sobre" class="section reveal">
-      <h2><i class="fas fa-building"></i> Sobre a Interação</h2>
-      <div class="empresa-content">
-        <div class="empresa-texto">
-          <p class="empresa-destaque">A <strong>Interação</strong> é uma empresa especializada em marketing cultural, turismo e produção audiovisual, com mais de 25 anos de experiência no mercado brasileiro.</p>
-          
-          <p>Nossa missão é conectar territórios, preservar memórias e inspirar pessoas através de soluções criativas e sustentáveis. Atuamos na elaboração e gestão de projetos culturais, produção audiovisual, comunicação estratégica e marketing territorial.</p>
-          
-                      <p>Com uma equipe multidisciplinar e vasta experiência em economia criativa, patrimônio cultural e desenvolvimento regional, a Interação oferece soluções completas que valorizam a identidade cultural local e geram impacto social positivo.</p>
-        </div>
-        
-        <div class="empresa-valores">
-          <h3>Nossos Valores</h3>
-          <div class="valores-grid">
-            <div class="valor-item">
-              <i class="fas fa-heart"></i>
-              <h4>Paixão pela Cultura</h4>
-              <p>Valorizamos e preservamos a riqueza cultural brasileira</p>
+      <div class="banner-sobre-container">
+        <video class="banner-sobre-video" autoplay muted loop playsinline>
+          <source src="videos/VideoInteracao.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+        <div class="banner-sobre-content">
+          <div class="sobre-left-column">
+            <div class="sobre-header">
+              <h2><i class="fas fa-building"></i> Sobre a Interação</h2>
+              <div class="sobre-chamada">
+                <p class="chamada-destaque">Mais que uma empresa: uma ponte entre cultura, turismo e pessoas.</p>
+              </div>
             </div>
-            <div class="valor-item">
-              <i class="fas fa-handshake"></i>
-              <h4>Compromisso</h4>
-              <p>Dedicação total em cada projeto e parceria</p>
-            </div>
-            <div class="valor-item">
-              <i class="fas fa-lightbulb"></i>
-              <h4>Inovação</h4>
-              <p>Soluções criativas e tecnologias inovadoras</p>
-            </div>
-            <div class="valor-item">
-              <i class="fas fa-leaf"></i>
-              <h4>Sustentabilidade</h4>
-              <p>Desenvolvimento responsável e impacto positivo</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="equipe" class="section reveal">
-      <h2><i class="fas fa-users"></i> Nossa Equipe</h2>
-      <div class="equipe-content">
-        <div class="equipe-destaque">
-          <div class="equipe-foto">
-            <img src="img/duda-rocha.jpg" alt="Duda Rocha - CEO da Interação Comunicação Criativa" />
-          </div>
-          <div class="equipe-info">
-            <h3>Duda Rocha</h3>
-            <span class="cargo">CEO & Fundadora</span>
-            <p>Profissional com mais de 25 anos de experiência no mercado cultural, audiovisual e turístico. Especialista em economia criativa, patrimônio cultural e desenvolvimento regional. Lidera a Interação com foco em soluções inovadoras que conectam territórios, memórias e pessoas.</p>
             
-            <div class="equipe-credenciais">
-              <div class="credencial">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Especialista em Marketing Cultural</span>
+            <div class="empresa-texto">
+              <div class="frase-card" id="frase1">
+                <div class="frase-content">
+                  <h3>A <strong>Interação</strong> é uma empresa especializada em marketing cultural, turismo e produção audiovisual, com mais de 25 anos de experiência no mercado brasileiro.</h3>
+                </div>
               </div>
-              <div class="credencial">
-                <i class="fas fa-award"></i>
-                <span>25+ Anos de Experiência</span>
+              <div class="frase-card" id="frase2">
+                <div class="frase-content">
+                  <h3>Nossa missão é conectar territórios, preservar memórias e inspirar pessoas através de soluções criativas e sustentáveis. Atuamos na elaboração e gestão de projetos culturais, produção audiovisual, comunicação estratégica e marketing territorial.</h3>
+                </div>
               </div>
-              <div class="credencial">
-                <i class="fas fa-map-marked-alt"></i>
-                <span>Especialista em Turismo Territorial</span>
+              <div class="frase-card" id="frase3">
+                <div class="frase-content">
+                  <h3>Com uma equipe multidisciplinar e vasta experiência em economia criativa, patrimônio cultural e desenvolvimento regional, a Interação oferece soluções completas que valorizam a identidade cultural local e geram impacto social positivo.</h3>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta-meio" class="section reveal">
-      <div class="cta-container">
-        <h2>Pronto para transformar seu projeto?</h2>
-        <p>Conectamos territórios, preservamos memórias e inspiramos pessoas há mais de 25 anos.</p>
-        <div class="cta-buttons">
-          <button class="cta-primary" onclick="solicitarProposta()">
-            <span>Solicitar Proposta</span>
-            <i class="fas fa-paper-plane"></i>
-          </button>
-          <button class="cta-secondary" onclick="baixarPortfolio()">
-            <span>Baixar Portfólio Completo</span>
-            <i class="fas fa-download"></i>
-          </button>
+          
+          <div class="empresa-valores">
+            <h3>Nossos Valores</h3>
+            <div class="valores-grid">
+              <div class="valor-item">
+                <video class="valor-video" autoplay muted loop playsinline>
+                  <source src="videos/PaixaoPelaCultura.mp4" type="video/mp4">
+                </video>
+                <div class="valor-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <h4>Paixão pela Cultura</h4>
+                <p>Valorizamos e preservamos a riqueza cultural brasileira</p>
+              </div>
+              <div class="valor-item">
+                <video class="valor-video" autoplay muted loop playsinline>
+                  <source src="videos/compromisso.mp4" type="video/mp4">
+                </video>
+                <div class="valor-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h4>Compromisso</h4>
+                <p>Dedicação total em cada projeto e parceria</p>
+              </div>
+              <div class="valor-item">
+                <video class="valor-video" autoplay muted loop playsinline>
+                  <source src="videos/inovacao.mp4" type="video/mp4">
+                </video>
+                <div class="valor-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </div>
+                <h4>Inovação</h4>
+                <p>Soluções criativas e tecnologias inovadoras</p>
+              </div>
+              <div class="valor-item">
+                <video class="valor-video" autoplay muted loop playsinline>
+                  <source src="videos/Sustentabilidade.mp4" type="video/mp4">
+                </video>
+                <div class="valor-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <h4>Sustentabilidade</h4>
+                <p>Desenvolvimento responsável e impacto positivo</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -391,60 +486,7 @@
       </div>
     </section>
 
-    <section id="timeline" class="section reveal">
-      <h2><i class="fas fa-clock"></i> 25 Anos de Experiência</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>1999</h3>
-            <p>Início da jornada na comunicação e cultura</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2005</h3>
-            <p>Primeiros projetos audiovisuais e documentários</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2010</h3>
-            <p>Especialização em marketing territorial e turismo cultural</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2015</h3>
-            <p>Expansão para consultoria em políticas públicas culturais</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2020</h3>
-            <p>Adaptação digital e projetos inovadores durante a pandemia</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>2024</h3>
-            <p>25 anos conectando territórios, memórias e pessoas</p>
-          </div>
-        </div>
-        <div class="timeline-item highlight">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>25 Anos de Experiência</h3>
-            <p>Mais de 200 projetos realizados em 50 cidades, com reconhecimento nacional e prêmios em festivais culturais. Especialistas em economia criativa, patrimônio cultural e desenvolvimento regional.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <section id="pesquisa" class="section reveal">
       <h2><i class="fas fa-search"></i> Publicações e Pesquisa</h2>
@@ -485,204 +527,6 @@
       </div>
     </section>
 
-    <!-- Carrossel de Clientes Moderno -->
-    <section id="clientes" class="section reveal">
-      <div class="clientes-modernos">
-        <div class="clientes-header">
-          <h2><i class="fas fa-handshake"></i> Clientes e Parceiros Atendidos</h2>
-          <p>Empresas e organizações que confiam na Interação para seus projetos de marketing cultural e turismo</p>
-          <div class="clientes-divider"></div>
-        </div>
-        
-        <div class="carrossel-container">
-          <div class="carrossel-wrapper" id="carrosselClientes">
-            <!-- Logos duplicados para loop infinito -->
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-frasle.png" alt="Fras-le" />
-                <p class="logo-name">Fras-le</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-unimed.png" alt="Unimed" />
-                <p class="logo-name">Unimed</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-randon.png" alt="Randon Implementos" />
-                <p class="logo-name">Randon</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-prolar.png" alt="Prolar" />
-                <p class="logo-name">Prolar</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-rede-multimercados.png" alt="Rede Multimercados" />
-                <p class="logo-name">Multimercados</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-nl-informatica.png" alt="NL Informática" />
-                <p class="logo-name">NL Informática</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-metalurgicos.png" alt="Sindicato dos Metalúrgicos" />
-                <p class="logo-name">Sindicato Metalúrgicos</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-sindilojas.png" alt="Sindilojas" />
-                <p class="logo-name">Sindilojas</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-luiz-argenta.png" alt="Luiz Argenta" />
-                <p class="logo-name">Luiz Argenta</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-mioranza.png" alt="Mioranza" />
-                <p class="logo-name">Mioranza</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-trigo.png" alt="Instituto do Trigo" />
-                <p class="logo-name">IBTrigo</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-espaco3.png" alt="Espaço 3" />
-                <p class="logo-name">Espaço 3</p>
-              </div>
-            </div>
-            
-            <!-- Duplicação para loop infinito -->
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-frasle.png" alt="Fras-le" />
-                <p class="logo-name">Fras-le</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-unimed.png" alt="Unimed" />
-                <p class="logo-name">Unimed</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-randon.png" alt="Randon Implementos" />
-                <p class="logo-name">Randon</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-prolar.png" alt="Prolar" />
-                <p class="logo-name">Prolar</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-rede-multimercados.png" alt="Rede Multimercados" />
-                <p class="logo-name">Multimercados</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-nl-informatica.png" alt="NL Informática" />
-                <p class="logo-name">NL Informática</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-metalurgicos.png" alt="Sindicato dos Metalúrgicos" />
-                <p class="logo-name">Sindicato Metalúrgicos</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-sindilojas.png" alt="Sindilojas" />
-                <p class="logo-name">Sindilojas</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-luiz-argenta.png" alt="Luiz Argenta" />
-                <p class="logo-name">Luiz Argenta</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-mioranza.png" alt="Mioranza" />
-                <p class="logo-name">Mioranza</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-trigo.png" alt="Instituto do Trigo" />
-                <p class="logo-name">IBTrigo</p>
-              </div>
-            </div>
-            <div class="logo-item">
-              <div class="logo-card">
-                <img src="img/cliente-espaco3.png" alt="Espaço 3" />
-                <p class="logo-name">Espaço 3</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Gradientes laterais -->
-          <div class="carrossel-fade-left"></div>
-          <div class="carrossel-fade-right"></div>
-        </div>
-        
-        <!-- Estatísticas -->
-        <div class="clientes-stats">
-          <div class="stat-item">
-            <div class="stat-number">25+</div>
-            <div class="stat-label">Anos de Experiência</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">200+</div>
-            <div class="stat-label">Projetos Realizados</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Cidades Atendidas</div>
-          </div>
-        </div>
-        
-        <!-- CTA -->
-        <div class="clientes-cta">
-          <h3>Quer fazer parte desta lista?</h3>
-          <p>Entre em contato conosco e descubra como podemos ajudar sua empresa a se conectar com a cultura e o turismo.</p>
-          <div class="cta-buttons">
-            <button class="cta-primary" onclick="agendarReuniao()">
-              <span>Agendar Demonstração</span>
-              <i class="fas fa-calendar-alt"></i>
-            </button>
-            <button class="cta-secondary" onclick="scrollToContact()">
-              <span>Ver Nossos Projetos</span>
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
       
       <section id="servicos" class="section reveal">
         <h2>Serviços</h2>
@@ -857,34 +701,38 @@
       </div>
       
       <div class="footer-section">
-        <h3>Áreas de Atuação</h3>
-        <ul class="footer-areas">
-          <li>Marketing Cultural</li>
-          <li>Produção Audiovisual</li>
-          <li>Turismo Territorial</li>
-          <li>Consultoria Cultural</li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h3>Redes Sociais</h3>
-        <div class="social-links">
-          <a href="#" class="social-link" aria-label="Acessar Facebook da Interação">
-            <i class="fab fa-facebook"></i>
-            <span>Facebook</span>
-          </a>
-          <a href="#" class="social-link" aria-label="Acessar Instagram da Interação">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram</span>
-          </a>
-          <a href="https://www.linkedin.com/company/interacao-comunicacao" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn da Interação">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a href="#" class="social-link" aria-label="Acessar YouTube da Interação">
-            <i class="fab fa-youtube"></i>
-            <span>YouTube</span>
-          </a>
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>Áreas de Atuação</h3>
+            <ul class="footer-areas">
+              <li>Marketing Cultural</li>
+              <li>Produção Audiovisual</li>
+              <li>Turismo Territorial</li>
+              <li>Consultoria Cultural</li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Redes Sociais</h3>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Acessar Facebook da Interação">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook</span>
+              </a>
+              <a href="#" class="social-link" aria-label="Acessar Instagram da Interação">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.linkedin.com/company/interacao-comunicacao" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn da Interação">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" class="social-link" aria-label="Acessar YouTube da Interação">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -897,6 +745,20 @@
   <a href="https://wa.me/5554990000000?text=Olá!%20Quero%20saber%20mais%20sobre%20seus%20serviços." class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp" rel="noopener" aria-label="Fale conosco no WhatsApp pelo WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- Botão Flutuante CTA -->
+  <div class="cta-float" id="ctaFloat">
+    <div class="cta-float-content">
+      <div class="cta-float-text">
+        <h4>Pronto para transformar seu projeto?</h4>
+        <p>Conectamos territórios, preservamos memórias e inspiramos pessoas.</p>
+      </div>
+      <button class="cta-float-btn" onclick="solicitarProposta()">
+        <span>Solicitar Proposta</span>
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
