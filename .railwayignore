@@ -4,3 +4,4 @@ pages/
 components/
 node_modules/
 .git/
+public/
