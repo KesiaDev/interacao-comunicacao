@@ -32,8 +32,18 @@ const server = http.createServer((req, res) => {
   // Remover query string e hash
   let urlPath = req.url.split('?')[0].split('#')[0];
   
+  // BLOQUEAR acesso a pastas src, pages, components, node_modules
+  if (urlPath.startsWith('/src/') || 
+      urlPath.startsWith('/pages/') || 
+      urlPath.startsWith('/components/') ||
+      urlPath.startsWith('/node_modules/') ||
+      urlPath.startsWith('/.git/')) {
+    // Redirecionar para index.html da raiz
+    urlPath = '/index.html';
+  }
+  
   // SEMPRE servir index.html da raiz quando acessar a rota principal
-  if (urlPath === '/' || urlPath === '') {
+  if (urlPath === '/' || urlPath === '' || urlPath === '/index') {
     urlPath = '/index.html';
   }
   
@@ -44,7 +54,8 @@ const server = http.createServer((req, res) => {
   filePath = path.normalize(filePath);
   
   // Segurança: garantir que não saia do diretório do projeto
-  if (!filePath.startsWith(__dirname)) {
+  const rootDir = path.normalize(__dirname);
+  if (!filePath.startsWith(rootDir)) {
     filePath = path.join(__dirname, 'index.html');
   }
 
@@ -53,6 +64,7 @@ const server = http.createServer((req, res) => {
     if (err) {
       // Arquivo não encontrado - SEMPRE servir index.html da raiz
       const indexPath = path.join(__dirname, 'index.html');
+      console.log(`Arquivo não encontrado: ${filePath}, servindo index.html`);
       fs.readFile(indexPath, (error, content) => {
         if (error) {
           res.writeHead(404, { 'Content-Type': 'text/html' });
@@ -70,6 +82,26 @@ const server = http.createServer((req, res) => {
         }
       });
     } else {
+      // Verificar se não está tentando acessar pastas bloqueadas
+      const relativePath = path.relative(rootDir, filePath);
+      if (relativePath.startsWith('src' + path.sep) || 
+          relativePath.startsWith('pages' + path.sep) ||
+          relativePath.startsWith('components' + path.sep) ||
+          relativePath.startsWith('node_modules' + path.sep)) {
+        // Bloquear e servir index.html
+        const indexPath = path.join(__dirname, 'index.html');
+        fs.readFile(indexPath, (error, content) => {
+          if (error) {
+            res.writeHead(404);
+            res.end('Not found');
+          } else {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(content, 'utf-8');
+          }
+        });
+        return;
+      }
+      
       // Arquivo existe, ler e servir
       const extname = String(path.extname(filePath)).toLowerCase();
       const contentType = mimeTypes[extname] || 'application/octet-stream';
