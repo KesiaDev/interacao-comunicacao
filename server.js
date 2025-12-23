@@ -1,5 +1,6 @@
 /**
  * Servidor simples para servir arquivos estáticos no Railway
+ * GARANTE que sempre serve o index.html correto da raiz
  */
 const http = require('http');
 const fs = require('fs');
@@ -26,72 +27,77 @@ const mimeTypes = {
   '.otf': 'application/font-otf'
 };
 
+// Caminho absoluto para o index.html da raiz
+const INDEX_HTML = path.join(__dirname, 'index.html');
+
+// Função para servir o index.html da raiz
+function serveIndexHtml(res) {
+  fs.readFile(INDEX_HTML, (error, content) => {
+    if (error) {
+      console.error(`❌ ERRO CRÍTICO ao ler index.html: ${error.message}`);
+      res.writeHead(500, { 'Content-Type': 'text/html' });
+      res.end(`
+        <html>
+          <body>
+            <h1>Erro: index.html não encontrado</h1>
+            <p>${error.message}</p>
+            <p>Caminho esperado: ${INDEX_HTML}</p>
+          </body>
+        </html>
+      `);
+    } else {
+      console.log(`✅ index.html da raiz servido (${content.length} bytes)`);
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(content, 'utf-8');
+    }
+  });
+}
+
 const server = http.createServer((req, res) => {
   console.log(`\n📥 ${req.method} ${req.url}`);
 
   // Remover query string e hash
   let urlPath = req.url.split('?')[0].split('#')[0];
   
-  // BLOQUEAR acesso a pastas src, pages, components, node_modules, public
+  // BLOQUEAR TOTALMENTE acesso a pastas src, pages, components, node_modules, public
   if (urlPath.startsWith('/src/') || 
       urlPath.startsWith('/pages/') || 
       urlPath.startsWith('/components/') ||
       urlPath.startsWith('/node_modules/') ||
       urlPath.startsWith('/.git/') ||
       urlPath.startsWith('/public/')) {
-    console.log(`🚫 Acesso bloqueado a: ${urlPath} - redirecionando para index.html`);
-    urlPath = '/index.html';
+    console.log(`🚫 Acesso bloqueado a: ${urlPath} - servindo index.html da raiz`);
+    serveIndexHtml(res);
+    return;
   }
   
   // SEMPRE servir index.html da raiz quando acessar a rota principal
-  if (urlPath === '/' || urlPath === '' || urlPath === '/index') {
-    urlPath = '/index.html';
-    console.log(`✅ Rota raiz detectada - servindo index.html`);
-  }
-  
-  // Não fazer nada especial se já for index.html
-  if (urlPath === '/index.html') {
-    // Continuar normalmente
+  if (urlPath === '/' || urlPath === '' || urlPath === '/index' || urlPath === '/index.html') {
+    console.log(`✅ Rota raiz detectada - servindo index.html da raiz`);
+    serveIndexHtml(res);
+    return;
   }
   
   // Construir caminho do arquivo
   let filePath = path.join(__dirname, urlPath);
   
-  // Normalizar o caminho para evitar problemas com ../
+  // Normalizar o caminho
   filePath = path.normalize(filePath);
   
   // Segurança: garantir que não saia do diretório do projeto
   const rootDir = path.normalize(__dirname);
   if (!filePath.startsWith(rootDir)) {
-    console.log(`⚠️  Tentativa de acesso fora do diretório - redirecionando para index.html`);
-    filePath = path.join(__dirname, 'index.html');
+    console.log(`⚠️  Tentativa de acesso fora do diretório - servindo index.html`);
+    serveIndexHtml(res);
+    return;
   }
 
   // Verificar se o arquivo existe
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       // Arquivo não encontrado - SEMPRE servir index.html da raiz
-      const indexPath = path.join(__dirname, 'index.html');
-      console.log(`❌ Arquivo não encontrado: ${filePath}`);
-      console.log(`📄 Servindo index.html da raiz: ${indexPath}`);
-      fs.readFile(indexPath, (error, content) => {
-        if (error) {
-          console.error(`❌ Erro ao ler index.html: ${error.message}`);
-          res.writeHead(404, { 'Content-Type': 'text/html' });
-          res.end(`
-            <html>
-              <body>
-                <h1>404 - Página não encontrada</h1>
-                <p>O index.html não foi encontrado em: ${indexPath}</p>
-              </body>
-            </html>
-          `);
-        } else {
-          console.log(`✅ index.html servido com sucesso (${content.length} bytes)`);
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(content, 'utf-8');
-        }
-      });
+      console.log(`❌ Arquivo não encontrado: ${filePath} - servindo index.html`);
+      serveIndexHtml(res);
     } else {
       // Verificar se não está tentando acessar pastas bloqueadas
       const relativePath = path.relative(rootDir, filePath);
@@ -102,17 +108,7 @@ const server = http.createServer((req, res) => {
           relativePath.startsWith('public' + path.sep)) {
         // Bloquear e servir index.html
         console.log(`🚫 Tentativa de acesso a pasta bloqueada: ${relativePath}`);
-        const indexPath = path.join(__dirname, 'index.html');
-        fs.readFile(indexPath, (error, content) => {
-          if (error) {
-            res.writeHead(404);
-            res.end('Not found');
-          } else {
-            console.log(`✅ index.html servido (bloqueio de pasta)`);
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(content, 'utf-8');
-          }
-        });
+        serveIndexHtml(res);
         return;
       }
       
@@ -139,4 +135,14 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`📁 Servindo arquivos estáticos de: ${__dirname}`);
+  console.log(`📄 index.html localizado em: ${INDEX_HTML}`);
+  
+  // Verificar se index.html existe
+  fs.access(INDEX_HTML, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error(`❌ ERRO: index.html não encontrado em ${INDEX_HTML}`);
+    } else {
+      console.log(`✅ index.html encontrado e pronto para servir`);
+    }
+  });
 });
