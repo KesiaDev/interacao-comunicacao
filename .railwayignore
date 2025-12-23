@@ -1,0 +1,6 @@
+# Ignorar pastas que não devem ser servidas
+src/
+pages/
+components/
+node_modules/
+.git/

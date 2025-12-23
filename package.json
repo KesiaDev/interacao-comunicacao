@@ -1,0 +1,19 @@
+{
+  "name": "interacao-comunicacao",
+  "version": "1.0.0",
+  "description": "Site para empresa de Marketing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "qrcode": "node generate-qrcode.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "qrcode": "^1.5.3"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
