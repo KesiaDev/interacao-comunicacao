@@ -44,9 +44,14 @@ const server = http.createServer((req, res) => {
   }
   
   // SEMPRE servir index.html da raiz quando acessar a rota principal
-  if (urlPath === '/' || urlPath === '' || urlPath === '/index' || urlPath === '/index.html') {
+  if (urlPath === '/' || urlPath === '' || urlPath === '/index') {
     urlPath = '/index.html';
     console.log(`✅ Rota raiz detectada - servindo index.html`);
+  }
+  
+  // Não fazer nada especial se já for index.html
+  if (urlPath === '/index.html') {
+    // Continuar normalmente
   }
   
   // Construir caminho do arquivo
