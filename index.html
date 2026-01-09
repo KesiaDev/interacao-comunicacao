@@ -6,9 +6,9 @@
   <title>Interação | Marketing Cultural e Turismo</title>
   <meta name="description" content="Interação - Empresa especializada em marketing cultural, turismo e produção audiovisual. Mais de 25 anos de experiência conectando territórios, memórias e pessoas." />
   <meta name="keywords" content="Duda Rocha, Interação, comunicação, cultura, turismo, audiovisual, marketing, projetos culturais, consultoria, branding, storytelling, economia criativa, Caxias do Sul" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="header-container">
       <div class="logo-container">
         <a href="index.html" class="logo">
-          <img src="/img/logo-interacao.png" alt="Interação - marketing, cultura, turismo" class="logo-img" />
+          <img src="img/logo-interacao.png" alt="Interação - marketing, cultura, turismo" class="logo-img" />
         </a>
       </div>
       
@@ -488,6 +488,46 @@
 
 
 
+    <section id="pesquisa" class="section reveal">
+      <h2><i class="fas fa-search"></i> Publicações e Pesquisa</h2>
+      <div class="pesquisa-grid">
+        <div class="pesquisa-card">
+          <i class="fas fa-book-open"></i>
+          <div>
+            <h3>Artigos Acadêmicos</h3>
+            <p class="resumo">Autora de artigos acadêmicos sobre turismo, memória e patrimônio.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Publicações em revistas científicas nacionais e internacionais, com foco em economia criativa, desenvolvimento regional e preservação patrimonial. Artigos que contribuem para o debate acadêmico sobre turismo cultural sustentável.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+        <div class="pesquisa-card">
+          <i class="fas fa-book"></i>
+          <div>
+            <h3>Capítulos em Livros</h3>
+            <p class="resumo">Coautora de capítulos em livros internacionais sobre patrimônio cultural.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Participação em obras coletivas publicadas por editoras renomadas, abordando temas como gestão cultural, políticas públicas e inovação social. Contribuições que estabelecem diálogos entre teoria e prática.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+        <div class="pesquisa-card">
+          <i class="fas fa-film"></i>
+          <div>
+            <h3>Documentários e Espetáculos</h3>
+            <p class="resumo">Documentários e espetáculos culturais premiados por leis de incentivo.</p>
+            <div class="conteudo-completo" style="display: none;">
+              <p>Produções audiovisuais que retratam a riqueza cultural brasileira, premiadas em festivais nacionais e internacionais. Espetáculos que resgatam memórias e fortalecem identidades territoriais.</p>
+            </div>
+            <button class="btn-leia-mais" onclick="toggleLeiaMais(this)">Leia mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      
       <section id="servicos" class="section reveal">
         <h2>Serviços</h2>
         <div class="servicos-grid">
@@ -533,6 +573,115 @@
       </div>
     </section>
 
+    <section id="blog" class="section reveal">
+      <h2><i class="fas fa-newspaper"></i> Blog e Notícias</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="img/equipe.jpg" alt="Marketing Cultural" loading="lazy">
+            <div class="blog-category">Marketing Cultural</div>
+          </div>
+          <div class="blog-content">
+            <h3>O Poder do Marketing Cultural para Empresas</h3>
+            <p class="blog-excerpt">Como a cultura pode ser uma ferramenta poderosa para conectar marcas com suas comunidades...</p>
+            <div class="blog-meta">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 15 Jan 2024</span>
+              <span class="blog-read-time"><i class="fas fa-clock"></i> 5 min</span>
+            </div>
+            <button class="btn-blog" onclick="openBlogPost('marketing-cultural')">Ler artigo completo</button>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="img/logo-interacao.png" alt="Turismo Regional" loading="lazy">
+            <div class="blog-category">Turismo Regional</div>
+          </div>
+          <div class="blog-content">
+            <h3>Desenvolvimento Turístico Sustentável</h3>
+            <p class="blog-excerpt">Estratégias para desenvolver o turismo regional preservando a identidade local...</p>
+            <div class="blog-meta">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 10 Jan 2024</span>
+              <span class="blog-read-time"><i class="fas fa-clock"></i> 7 min</span>
+            </div>
+            <button class="btn-blog" onclick="openBlogPost('turismo-sustentavel')">Ler artigo completo</button>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="img/duda-rocha.jpg" alt="Políticas Culturais" loading="lazy">
+            <div class="blog-category">Políticas Culturais</div>
+          </div>
+          <div class="blog-content">
+            <h3>A Importância das Políticas Públicas Culturais</h3>
+            <p class="blog-excerpt">Como políticas bem estruturadas podem transformar comunidades e territórios...</p>
+            <div class="blog-meta">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 05 Jan 2024</span>
+              <span class="blog-read-time"><i class="fas fa-clock"></i> 6 min</span>
+            </div>
+            <button class="btn-blog" onclick="openBlogPost('politicas-culturais')">Ler artigo completo</button>
+          </div>
+        </article>
+      </div>
+      
+      <div class="blog-newsletter">
+        <h3><i class="fas fa-envelope"></i> Fique por dentro das novidades</h3>
+        <p>Receba nossos artigos e cases diretamente no seu email</p>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="Seu melhor email" required>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+            Inscrever-se
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section id="instagram" class="section reveal">
+      <h2><i class="fab fa-instagram"></i> Siga-nos no Instagram</h2>
+      <p class="section-subtitle">Acompanhe nossos projetos, eventos e novidades em tempo real</p>
+      
+      <div class="instagram-feed">
+        <div class="instagram-header">
+          <div class="instagram-profile">
+            <img src="img/duda-rocha.jpg" alt="Duda Rocha" class="profile-pic">
+            <div class="profile-info">
+              <h3>@interacao.comunicacao</h3>
+              <p>Marketing Cultural • Turismo • Eventos</p>
+            </div>
+          </div>
+          <a href="https://instagram.com/interacao.comunicacao" target="_blank" rel="noopener" class="instagram-follow-btn">
+            <i class="fab fa-instagram"></i>
+            Seguir
+          </a>
+        </div>
+        
+        <div class="instagram-grid" id="instagramGrid">
+          <!-- Posts do Instagram serão carregados dinamicamente -->
+          <div class="instagram-placeholder">
+            <i class="fab fa-instagram"></i>
+            <p>Carregando posts do Instagram...</p>
+          </div>
+        </div>
+        
+        <div class="instagram-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="150">0</span>
+            <span class="stat-label">Posts</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="1200">0</span>
+            <span class="stat-label">Seguidores</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="85">0</span>
+            <span class="stat-label">Projetos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+      
   </main>
 
   <footer>
@@ -570,6 +719,10 @@
                 <i class="fab fa-facebook"></i>
                 <span>Facebook</span>
               </a>
+              <a href="#" class="social-link" aria-label="Acessar Instagram da Interação">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
               <a href="https://www.linkedin.com/company/interacao-comunicacao" class="social-link" target="_blank" rel="noopener" aria-label="Acessar LinkedIn da Interação">
                 <i class="fab fa-linkedin"></i>
                 <span>LinkedIn</span>
@@ -606,7 +759,7 @@
       </button>
     </div>
   </div>
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 
